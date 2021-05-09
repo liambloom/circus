@@ -1,0 +1,12 @@
+*               text=auto eol=lf
+
+*.java          text diff=java
+
+*.rs            text diff=rust
+*.toml          text
+
+*.md            text diff=markdown
+*.pptx          binary
+
+.gitignore	    text
+.gitattributes	text
