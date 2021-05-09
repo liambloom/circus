@@ -34,8 +34,7 @@ The instructions of the circus project are as follows:
 >
 >What is your selection:
 >
->Your Task:
-> 
+>Your Task:\
 >ON PAPER  (1 page for each selection) CLEARLY design what this structure would look like.  How would you design the nodes? How would you design the layout, meaning all the references/pointers whether that be arrays, linked lists, Stacks/Queues, Trees, etc?  How would they correspond to one another?  How would you insert and delete nodes? Which is the best structure and why? Also, what are some of the alternatives? What is the Big-O of your design and ALL Menu options?  [O(n) for time efficiency]
 
 
