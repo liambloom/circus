@@ -27,28 +27,13 @@ public record Employee(String lastname, String firstname, char middleInitial, St
      */
 
     private static final String[] headers = { "Name", "Id", "Category", "Title" };
-    //private static final int[] columnWidths = new int[headers.length];
-
-    //static { setColumnWidths(headers); }
 
     public Employee {
         if (idNum != null && !ID_NUM_PATTERN.matcher(idNum).matches())
             throw new IllegalArgumentException("Invalid id num format");
         if (category != null)
             category = category.intern();
-        //setColumnWidths(new String[]{fullname(lastname, firstname, middleInitial), idNum, category, title});
     }
-
-    /*private static void setColumnWidths(String[] s) {
-        if (s.length != headers.length)
-            throw new IllegalArgumentException("Column widths cannot be set by array of different length than number of columns");
-        for (int i = 0; i < headers.length; i++) {
-            int l = s[i].length();
-
-            if (columnWidths[i] < l)
-                columnWidths[i] = l;
-        }
-    }*/
 
     public Employee(Scanner s) {
         this(
@@ -69,18 +54,6 @@ public record Employee(String lastname, String firstname, char middleInitial, St
     public static String fullname(String lastname, String firstname, char middleInitial) {
         return lastname + ", " + firstname + (middleInitial == '#' ? "" : " " + middleInitial + ".");
     }
-
-    /*public static void printHeader() {
-        printHeaderWithPadding(0);
-    }*/
-
-    /*public static void printHeaderWithPadding(int p) {
-        final String padding = " ".repeat(p);
-        System.out.println(padding + String.format(template(), (Object[]) headers) + System.lineSeparator()
-                + padding + Arrays.stream(columnWidths)
-                .mapToObj(w -> "-".repeat(w + 2))
-                .collect(Collectors.joining("+")));
-    }*/
 
     public static void printAll(Stream<Employee> allEmployees, boolean indexed) {
         final String[][] employeeData = allEmployees
@@ -125,6 +98,4 @@ public record Employee(String lastname, String firstname, char middleInitial, St
     public static final Comparator<Employee> nameComparator = Comparator.comparing(Employee::lastname)
             .thenComparing(Employee::firstname)
             .thenComparing(Employee::middleInitial);
-
-    //public static final Comparator<Employee> idNumComparator = Comparator.comparing(Employee::idNum);
 }
