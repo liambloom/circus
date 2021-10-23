@@ -4,21 +4,7 @@ use std::fs::File;
 use std::path::Path;
 use std::hash::Hash;
 
-const EMPLOYEES_FILE: &'static str = "../employees.txt";
-
-fn main() -> IoResult<()> {
-    let mut employees = BTreeMap::new();
-
-    for line in BufReader::new(File::open(EMPLOYEES_FILE)?).lines().filter_map(|s| s.ok().filter(String::is_empty)) {
-        Employee::add_from_string(&mut employees, line);
-    }
-
-
-
-    Ok(())
-}
-
-struct Employee<'a> {
+pub struct Employee<'a> {
     firstname: String,
     lastname: String,
     middle_initial: char,
@@ -28,7 +14,7 @@ struct Employee<'a> {
 }
 
 impl<'a> Employee<'a> {
-    fn add_from_string(map: &mut BTreeMap<String, BTreeSet<Employee>>, s: String) -> Employee<'a> {
+    pub fn add_from_string(map: &mut BTreeMap<String, BTreeSet<Employee>>, s: String) -> Employee<'a> {
         todo!();
     }
 }
